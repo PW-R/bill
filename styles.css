@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Ensures no scrolling */
+}
+
+.receipt {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.receipt p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.receipt .item {
+    font-weight: bold;
+}
+
+.receipt hr {
+    border: none;
+    border-top: 1px dashed #ddd;
+    margin: 10px 0;
+}
+
+.section-line {
+    border: none;
+    border-top: 2px solid #000;
+    margin: 10px 0;
+}
