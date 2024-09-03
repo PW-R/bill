@@ -1,53 +1,97 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Details</title>
+    <title>Water Bill</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="receipt">
-        <div class="center-text">
-            <p>TW 66</p>
-            <p>ใบเสร็จรับเงิน/ใบกำกับภาษีอย่างย่อ</p>
-            <p>บมจ.ปตท. น้ำมันและการค้าปลีก สาขาที่ 00398</p>
-            <p>(พลัมคอนโด)</p>
-            <p>Cafe Amazon สาขา 1930</p>
-            <p>TAX ID: 0107561000013</p>
-            <p>POS ID: E010090002A1926</p>
+    <div class="bill-container">
+        <div class="header">
+            <div class="logo">
+                <img src="./logo.png" alt="MWA Logo">
+            </div>
+            <div class="organization-info">
+                <h1>การประปานครหลวง</h1>
+                <h2>ใบแจ้งค่าน้ำประปา</h2>
+                <p>www.mwa.co.th | mwa1125@mwa.co.th</p>
+                <p>สาขา: <span id="branch"></span></p>
+                <p>ประจำเดือน: <span id="billingMonth"></span></p>
+            </div>
         </div>
-        <p>Date: 27/08/2567 11:16</p>
-        <p>Tax Invoice No.: 1930RC082567/003139</p>
-        <p>Cashier: 1930002</p>
-        <p>Store Manager: AMZ #2</p>
-        <p>No. Customer: 1</p>
-        <hr class="section-line">
-        <p class="item">TW ชาเขียวนม เย็น (TAKE AWAY)</p>
-        <hr class="section-line">
-        <p>Total Baht: 55.00</p>
-        <p>Redeem (blueplus+): 40.00</p>
-        <p>NET BAHT: 15.00</p>
-        <p>Cash: 15.00</p>
-        <hr class="section-line">
-        <p>Change: 0.00</p>
-        <p>VATable: 55.00</p>
-        <p>VAT (7%): 3.60</p>
-        <hr class="section-line">
-        <p>ปวเรศ</p>
-        <p>Card No.: XXXX XXXX 4226 2161</p>
-        <hr>
-        <p>Total Points: 235</p>
-        <p>Redemption Points: 200</p>
-        <p>Balance Points: 35</p>
-        <p>Reward Points: 0</p>
-        <p>Total Earned Today: 0 Points</p>
-        <hr>
-        <p>1365 Contact Center</p>
-        <p>ราคารวมภาษีมูลค่าเพิ่มแล้ว ** ขอบคุณที่ใช้บริการ **</p>
-        <p>PTT Station Free Wifi Password: 7SMFWC2SH4R</p>
-        <p>(กรุณากรอกอักขระให้ถูกต้อง)</p>
-        <p>Cafe Amazon... Taste of Nature</p>
+        <div class="bill-details">
+            
+            <table class="bill-table">
+                <tr>
+                    <th>สาขา-เขต</th>
+                    <th>ทะเบียนผู้ใช้น้ำ</th>
+                    <th>เส้นทาง-ลำดับ</th>
+                    <th>เลขที่แจ้งค่าน้ำ</th>
+                    <th>วันที่แจ้งค่าน้ำ</th>
+                </tr>
+                <tr>
+                    <td id="branchNumber">กรุงเทพมหานคร</td>
+                    <td id="userRegistrationNumber"></td>
+                    <td id="routeNumber"></td>
+                    <td id="billNumber"></td>
+                    <td id="billDate"></td>
+                </tr>
+                <tr>
+                    <th>วันที่อ่านครั้งนี้</th>
+                    <th>เลขในมาตร</th>
+                    <th>วันที่อ่านครั้งก่อน</th>
+                    <th>เลขในมาตร</th>
+                    <th>จำนวนน้ำใช้</th>
+                </tr>
+                <tr>
+                    <td id="readingDate"></td>
+                    <td id="meterReading"></td>
+                    <td id="previousReadingDate"></td>
+                    <td id="previousMeterReading"></td>
+                    <td id="waterUsage"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="long-cell">
+                        ค่าน้ำประปา (ลูกบาศก์เมตรละ <span id="waterRate"></span>) <br>
+                        ส่วนลด <span id="discount"></span> <br>
+                        ค่าบริการรายเดือน <span id="monthlyServiceFee"></span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="long-cell">
+                        ยอดเงินก่อนคิดภาษี <span id="amountBeforeTax"></span> <br>
+                        ภาษีมูลค่าเพิ่ม <span id="vat"></span> <br>
+                        รวมเงิน <span id="totalAmount"></span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="long-cell">
+                        ค่าน้ำเดือนก่อน <span id="previousMonth"></span> เดือน
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="long-cell">
+                        รวมเงินที่ต้องชำระทั้งสิ้น <span id="totalDue"></span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="long-cell">
+                        โปรด <span id="pleasePayBy"></span> วันที่
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </div>
+
+    <script src="data.js"></script>
+    <script>
+       window.onload = loadBillData;
+    </script>
 </body>
 </html>
